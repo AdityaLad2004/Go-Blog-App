@@ -21,9 +21,7 @@ func main() {
 	defer sqlDB.Close()
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
+	router.setupRoutes(app)
 
 	log.Fatal(app.Listen(":3000"))
 }
